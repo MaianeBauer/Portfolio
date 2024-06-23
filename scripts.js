@@ -1,9 +1,14 @@
-const menuHamburguer = document.querySelector('.menu-hamburguer');
-const nav = document.querySelector('.navbar');
-const links = document.querySelectorAll('.navbar-links li a');
+const menuHamburguer = document.querySelector(".menu-hamburguer");
+const nav = document.querySelector(".navbar");
+const links = document.querySelectorAll(".navbar-links li a");
 
-let swiper = createSwiper(".mySwiper", ".swiper-pagination", ".swiper-button-next", ".swiper-button-prev");
-let header = document.getElementById('header');
+let swiper = createSwiper(
+  ".mySwiper",
+  ".swiper-pagination",
+  ".swiper-button-next",
+  ".swiper-button-prev"
+);
+let header = document.getElementById("header");
 
 function createSwiper(container, pagination, nextButton, prevButton) {
   return new Swiper(container, {
@@ -32,29 +37,28 @@ function handleWidth() {
     slideShow = 1;
   }
 
-  return slideShow
+  return slideShow;
 }
 
-menuHamburguer.addEventListener('click', () => {
-  nav.classList.toggle('active');
+menuHamburguer.addEventListener("click", () => {
+  nav.classList.toggle("active");
 });
 
-links.forEach(item => {
-  item.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  })
-})
+links.forEach((item) => {
+  item.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+});
 
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   swiper.params.slidesPerView = handleWidth();
   swiper.update();
-})
+});
 
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
   if (window.scrollY >= 200) {
-    header.style.background = 'rgba(225, 57, 136, 0.26)'
+    header.style.background = "rgba(225, 57, 136, 0.26)";
   } else {
-    header.style.background = 'transparent'
+    header.style.background = "transparent";
   }
-
-})
+});
